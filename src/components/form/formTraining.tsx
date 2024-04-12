@@ -4,7 +4,7 @@ import { Button } from '../button'
 
 export function FormTraining() {
   return (
-    <form action="" className="rounded-md border-4 p-4">
+    <form action="" className="rounded-md border-4 p-4 shadow-sm">
       <div className="flex items-center gap-2">
         <Clock9 className="h-8 w-8 text-light-yellow" />
         <span className="text-light-grey">Horário</span>
