@@ -16,9 +16,7 @@ export function Home() {
         </p>
       </div>
       <FormTraining />
-      <main>
-        
-      </main>
+      <main></main>
     </div>
   )
 }
