@@ -16,6 +16,9 @@ module.exports = {
         'gotham-book': ['gotham-book'],
         'gotham-light': ['gotham-light'],
       },
+      width: {
+        sizeApp: '1216px',
+      },
     },
   },
   plugins: [],

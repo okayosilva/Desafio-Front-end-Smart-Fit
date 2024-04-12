@@ -1,3 +1,4 @@
+import { Footer } from './components/footer'
 import { Header } from './components/header'
 import { Home } from './pages/home'
 
@@ -8,6 +9,7 @@ export function App() {
       <div className="flex justify-center px-8">
         <Home />
       </div>
+      <Footer />
     </>
   )
 }
