@@ -1,6 +1,6 @@
 import { Clock9 } from 'lucide-react'
 import { Input } from './inputForm'
-import { Button } from './button'
+import { Button } from '../button'
 
 export function FormTraining() {
   return (

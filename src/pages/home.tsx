@@ -1,4 +1,5 @@
-import { FormTraining } from '../components/formTraining'
+import { Banner } from '../components/banner'
+import { FormTraining } from '../components/form/formTraining'
 
 export function Home() {
   return (
@@ -16,7 +17,9 @@ export function Home() {
         </p>
       </div>
       <FormTraining />
-      <main></main>
+      <main>
+        <Banner />
+      </main>
     </div>
   )
 }
