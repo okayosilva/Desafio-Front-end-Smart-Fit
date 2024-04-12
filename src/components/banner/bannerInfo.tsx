@@ -8,7 +8,7 @@ function Root({ children, ...rest }: RootProps) {
   return (
     <div
       {...rest}
-      className="bg-light-grey-05 mt-8 flex flex-wrap  justify-center gap-12 rounded-md px-4 py-8 md:justify-between md:gap-0"
+      className="bg-light-grey-05 mt-8 flex flex-col flex-wrap justify-center  gap-12 rounded-md px-6 py-8 sm:flex-row lg:justify-between lg:gap-0"
     >
       {children}
     </div>
@@ -28,7 +28,7 @@ function BannerArea({ ...rest }: BannerAreaProps) {
 type GridProps = ComponentProps<'div'>
 
 function Grid({ ...rest }: GridProps) {
-  return <div {...rest} className="flex flex-wrap gap-4 " />
+  return <div {...rest} className="flex flex-wrap justify-center gap-4" />
 }
 
 type BannerInfoProps = ComponentProps<'div'>
