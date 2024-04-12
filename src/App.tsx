@@ -6,7 +6,7 @@ export function App() {
   return (
     <>
       <Header />
-      <div className="flex justify-center px-8">
+      <div className="flex min-h-screen justify-center px-8">
         <Home />
       </div>
       <Footer />
