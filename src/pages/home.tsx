@@ -80,6 +80,7 @@ export function Home() {
   function handleClear() {
     setIsChecked(false)
     setSelectPeriods([])
+    setGymIsClosed(false)
     setPeriods([])
   }
 
