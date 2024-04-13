@@ -8,7 +8,7 @@ function Root({ children, ...rest }: RootProps) {
   return (
     <div
       {...rest}
-      className="bg-light-grey-05 mt-8 flex flex-col flex-wrap justify-center  gap-12 rounded-md px-6 py-8 sm:flex-row lg:justify-between lg:gap-0"
+      className="mt-8 flex flex-col flex-wrap justify-center gap-12  rounded-md bg-light-grey-05 px-6 py-8 sm:flex-row lg:justify-between lg:gap-0"
     >
       {children}
     </div>

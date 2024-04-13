@@ -11,7 +11,7 @@ function Root({ children, ...rest }: RootProps) {
   return (
     <div
       {...rest}
-      className="flex min-h-[600px] flex-col rounded-md bg-light-grey-05 px-4 py-6 shadow-md"
+      className="shadow-m flex min-h-[600px] flex-col rounded-md bg-light-grey-05 px-4 py-6"
     >
       {children}
     </div>
@@ -84,22 +84,22 @@ function Icons({
     <div className="mt-6 flex flex-wrap lg:justify-between">
       <img
         className={sizeImage}
-        src={`/src/assets/images/png/${statusMask}-mask.png`}
+        src={`./src/assets/images/png/${statusMask}-mask.png`}
         alt=""
       />
       <img
         className={sizeImage}
-        src={`/src/assets/images/png/${statusTowel}-towel.png`}
+        src={`./src/assets/images/png/${statusTowel}-towel.png`}
         alt=""
       />
       <img
         className={sizeImage}
-        src={`/src/assets/images/png/${statusFountain}-fountain.png`}
+        src={`./src/assets/images/png/${statusFountain}-fountain.png`}
         alt=""
       />
       <img
         className={sizeImage}
-        src={`/src/assets/images/png/${statusLocker_room}-lockerroom.png`}
+        src={`./src/assets/images/png/${statusLocker_room}-lockerroom.png`}
         alt=""
       />
     </div>
