@@ -1,15 +1,16 @@
 import { Clock9 } from 'lucide-react'
 import { Input } from './inputForm'
 import { Button } from '../button'
-import React, { SetStateAction } from 'react'
+import React, { FormEvent, SetStateAction } from 'react'
 
 type FormTrainingProps = {
-  onSubmit: () => void
+  onSubmit: (event: FormEvent<HTMLFormElement>) => void
   handleClear: () => void
   total: number
   setIsChecked: React.Dispatch<SetStateAction<boolean>>
   setPeriods: React.Dispatch<SetStateAction<string[]>>
   isChecked: boolean
+  selectPeriods: string[]
 }
 
 export function FormTraining({
@@ -19,6 +20,7 @@ export function FormTraining({
   isChecked,
   setIsChecked,
   setPeriods,
+  selectPeriods,
 }: FormTrainingProps) {
   return (
     <form className="rounded-md border-4 p-4 shadow-sm" onSubmit={onSubmit}>
@@ -33,7 +35,8 @@ export function FormTraining({
         <Input.Root>
           <Input.InputArea>
             <Input.InputCheck
-              value="06:00 às 12:00"
+              value="06h às 12h"
+              checked={selectPeriods.includes('06h às 12h')}
               onChange={(e) => setPeriods((prev) => [...prev, e.target.value])}
             />
             <Input.Title>Manhã</Input.Title>
@@ -43,7 +46,8 @@ export function FormTraining({
         <Input.Root>
           <Input.InputArea>
             <Input.InputCheck
-              value="12:00 às 18:00"
+              value="12h às 18h"
+              checked={selectPeriods.includes('12h às 18h')}
               onChange={(e) => setPeriods((prev) => [...prev, e.target.value])}
             />
             <Input.Title>Tarde</Input.Title>
@@ -53,7 +57,8 @@ export function FormTraining({
         <Input.Root>
           <Input.InputArea>
             <Input.InputCheck
-              value="18:00 às 23:00"
+              value="18h às 23h"
+              checked={selectPeriods.includes('18h às 23h')}
               onChange={(e) => setPeriods((prev) => [...prev, e.target.value])}
             />
             <Input.Title>Noite</Input.Title>

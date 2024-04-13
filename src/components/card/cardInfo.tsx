@@ -11,7 +11,7 @@ function Root({ children, ...rest }: RootProps) {
   return (
     <div
       {...rest}
-      className="bg-light-grey-05 flex min-h-[600px] flex-col rounded-md px-4 py-6 shadow-md"
+      className="flex min-h-[600px] flex-col rounded-md bg-light-grey-05 px-4 py-6 shadow-md"
     >
       {children}
     </div>

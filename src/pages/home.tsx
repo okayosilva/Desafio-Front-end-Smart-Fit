@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { FormEvent, useEffect, useMemo, useState } from 'react'
 import { Banner } from '../components/banner'
 import { Card } from '../components/card'
 import { FormTraining } from '../components/form/formTraining'
@@ -25,6 +25,8 @@ export function Home() {
   const [gymList, setGymList] = useState<GymProps[]>([])
 
   const [periods, setPeriods] = useState<string[]>([])
+  const [selectPeriods, setSelectPeriods] = useState<string[]>([])
+
   const [gymIsClosed, setGymIsClosed] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
 
@@ -46,6 +48,7 @@ export function Home() {
       })
   }, [])
 
+  console.log(gymList)
   const filteredGymList = useMemo(() => {
     return gymList
       .filter((item) => {
@@ -58,30 +61,26 @@ export function Home() {
       .map((item) => ({
         ...item,
         schedules: item.schedules.filter((schedule) => {
-          if (periods.includes('06:00 às 12:00')) {
-            return schedule.hour === '06:00 às 12:00'
-          }
-          if (periods.includes('06:00 às 12:00')) {
-            return schedule.hour === '06:00 às 12:00'
-          }
-
-          if (periods.includes('18:00 às 23:00')) {
-            return schedule.hour === '18:00 às 23:00'
+          if (selectPeriods.length !== 0) {
+            return selectPeriods.includes(schedule.hour)
           }
 
           return schedule.hour
         }),
       }))
       .filter((item) => item.schedules.length > 0)
-  }, [gymList, gymIsClosed, periods])
+  }, [gymList, gymIsClosed, selectPeriods])
 
-  function onSubmit(event) {
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    setSelectPeriods(periods)
     setGymIsClosed(isChecked)
   }
 
   function handleClear() {
     setIsChecked(false)
+    setSelectPeriods([])
+    setPeriods([])
   }
 
   return (
@@ -105,6 +104,7 @@ export function Home() {
         isChecked={isChecked}
         setIsChecked={setIsChecked}
         setPeriods={setPeriods}
+        selectPeriods={periods}
       />
       <main>
         <Banner />
