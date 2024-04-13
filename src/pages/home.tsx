@@ -23,12 +23,12 @@ export type GymProps = {
 
 export function Home() {
   const [gymList, setGymList] = useState<GymProps[]>([])
-
   const [periods, setPeriods] = useState<string[]>([])
+
   const [selectPeriods, setSelectPeriods] = useState<string[]>([])
   const [gymIsClosed, setGymIsClosed] = useState(false)
-  const [isChecked, setIsChecked] = useState(false)
 
+  const [isChecked, setIsChecked] = useState(false)
   const [pageYPosition, setPageYPosition] = useState(0)
 
   function getPageYAfterScroll() {
