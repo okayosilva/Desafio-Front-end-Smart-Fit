@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useMemo, useState } from 'react'
 import { Banner } from '../components/banner'
 import { Card } from '../components/card'
 import { FormTraining } from '../components/form/formTraining'
-import { ChevronUp } from 'lucide-react'
+import { ChevronUp, OctagonAlert } from 'lucide-react'
 
 export type SchedulesProps = {
   weekdays: string
@@ -126,6 +126,12 @@ export function Home() {
             )
           })}
         </div>
+        {filteredGymList.length === 0 && (
+          <div className="flex flex-1 justify-center gap-2 rounded-md bg-dark-grey p-4 font-gotham-bold">
+            <OctagonAlert className="text-light-yellow" />
+            <span className="text-white">Nenhuma unidade encontrada</span>
+          </div>
+        )}
       </main>
       {pageYPosition > 900 && (
         <a
