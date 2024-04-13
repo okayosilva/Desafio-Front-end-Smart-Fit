@@ -2,9 +2,19 @@ import { Clock9 } from 'lucide-react'
 import { Input } from './inputForm'
 import { Button } from '../button'
 
-export function FormTraining() {
+type FormTrainingProps = {
+  onSubmit: () => void
+  handleClear: () => void
+  total: number
+}
+
+export function FormTraining({
+  total,
+  onSubmit,
+  handleClear,
+}: FormTrainingProps) {
   return (
-    <form action="" className="rounded-md border-4 p-4 shadow-sm">
+    <form className="rounded-md border-4 p-4 shadow-sm">
       <div className="flex items-center gap-2">
         <Clock9 className="h-8 w-8 text-light-yellow" />
         <span className="text-light-grey">Horário</span>
@@ -42,12 +52,14 @@ export function FormTraining() {
           <span>Exibir unidades fechadas</span>
         </div>
         <span>
-          Resultados encontrados: <span>0</span>
+          Resultados encontrados: <span>{total}</span>
         </span>
       </div>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
-        <Button variant="primary">ENCONTRAR UNIDADE</Button>
-        <Button>Limpar</Button>
+        <Button onClick={() => onSubmit()} variant="primary">
+          ENCONTRAR UNIDADE
+        </Button>
+        <Button onClick={() => handleClear()}>Limpar</Button>
       </div>
     </form>
   )
