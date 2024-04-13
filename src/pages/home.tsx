@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Banner } from '../components/banner'
 import { Card } from '../components/card'
 import { FormTraining } from '../components/form/formTraining'
@@ -23,6 +23,11 @@ export type GymProps = {
 
 export function Home() {
   const [gymList, setGymList] = useState<GymProps[]>([])
+
+  const [periods, setPeriods] = useState<string[]>([])
+  const [gymIsClosed, setGymIsClosed] = useState(false)
+  const [isChecked, setIsChecked] = useState(false)
+
   const [pageYPosition, setPageYPosition] = useState(0)
 
   function getPageYAfterScroll() {
@@ -37,17 +42,46 @@ export function Home() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         setGymList(data.locations)
       })
   }, [])
 
-  function onSubmit() {
-    console.log('submit')
+  const filteredGymList = useMemo(() => {
+    return gymList
+      .filter((item) => {
+        if (gymIsClosed) {
+          return item.opened === false || item.opened === true
+        } else {
+          return item.opened
+        }
+      })
+      .map((item) => ({
+        ...item,
+        schedules: item.schedules.filter((schedule) => {
+          if (periods.includes('06:00 às 12:00')) {
+            return schedule.hour === '06:00 às 12:00'
+          }
+          if (periods.includes('06:00 às 12:00')) {
+            return schedule.hour === '06:00 às 12:00'
+          }
+
+          if (periods.includes('18:00 às 23:00')) {
+            return schedule.hour === '18:00 às 23:00'
+          }
+
+          return schedule.hour
+        }),
+      }))
+      .filter((item) => item.schedules.length > 0)
+  }, [gymList, gymIsClosed, periods])
+
+  function onSubmit(event) {
+    event.preventDefault()
+    setGymIsClosed(isChecked)
   }
 
   function handleClear() {
-    console.log('clear')
+    setIsChecked(false)
   }
 
   return (
@@ -67,12 +101,15 @@ export function Home() {
       <FormTraining
         onSubmit={onSubmit}
         handleClear={handleClear}
-        total={gymList.length}
+        total={filteredGymList.length}
+        isChecked={isChecked}
+        setIsChecked={setIsChecked}
+        setPeriods={setPeriods}
       />
       <main>
         <Banner />
         <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-3 ">
-          {gymList?.map((gym) => {
+          {filteredGymList?.map((gym) => {
             return (
               <Card
                 key={gym.id}
@@ -93,7 +130,7 @@ export function Home() {
       {pageYPosition > 900 && (
         <a
           href="#container"
-          className="fixed bottom-10 right-6 rounded-full bg-light-yellow p-2 shadow-sm transition-all duration-75 hover:shadow-md md:bottom-16 md:right-16"
+          className="fixed bottom-10 right-6 flex items-center justify-center rounded-full bg-light-yellow p-2 shadow-sm transition-all duration-75 hover:shadow-md md:bottom-16 md:right-16"
         >
           <ChevronUp className="h-12 w-12 text-white" />
         </a>

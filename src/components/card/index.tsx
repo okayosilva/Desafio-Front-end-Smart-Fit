@@ -12,11 +12,13 @@ export function Card({
   schedules,
   towel,
 }: GymProps) {
-  const isOpen = opened === false ? 'Fechado' : 'Aberto'
+  const isOpen = opened === true ? 'Aberto' : 'Fechado'
   return (
     <CardInfo.Root>
       <CardInfo.Header>
-        <CardInfo.GymStatus variant={opened}>{isOpen}</CardInfo.GymStatus>
+        <CardInfo.GymStatus variant={opened === undefined ? false : opened}>
+          {isOpen}
+        </CardInfo.GymStatus>
         <CardInfo.GymName>{title}</CardInfo.GymName>
         <CardInfo.GymAddress
           dangerouslySetInnerHTML={{ __html: content }}
