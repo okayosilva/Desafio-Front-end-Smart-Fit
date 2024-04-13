@@ -26,7 +26,6 @@ export function Home() {
 
   const [periods, setPeriods] = useState<string[]>([])
   const [selectPeriods, setSelectPeriods] = useState<string[]>([])
-
   const [gymIsClosed, setGymIsClosed] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
 
@@ -48,6 +47,16 @@ export function Home() {
       })
   }, [])
 
+  const morning = [
+    '06h às 10h',
+    '06h às 12h',
+    '06h às 08h',
+    '06h30 às 08h30',
+    '06h às 09h',
+  ]
+  const afternoon = ['12h às 18h', '12h às 15h', '13h às 17h', '13h às 18h']
+  const night = ['18h às 23h', '18h às 21h']
+
   const filteredGymList = useMemo(() => {
     return gymList
       .filter((item) => {
@@ -61,7 +70,15 @@ export function Home() {
         ...item,
         schedules: item.schedules.filter((schedule) => {
           if (selectPeriods.length !== 0) {
-            return selectPeriods.includes(schedule.hour)
+            if (selectPeriods.includes('manha')) {
+              return morning.includes(schedule.hour)
+            }
+            if (selectPeriods.includes('tarde')) {
+              return afternoon.includes(schedule.hour)
+            }
+            if (selectPeriods.includes('noite')) {
+              return night.includes(schedule.hour)
+            }
           }
 
           return schedule.hour
