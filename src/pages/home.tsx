@@ -48,7 +48,6 @@ export function Home() {
       })
   }, [])
 
-  console.log(gymList)
   const filteredGymList = useMemo(() => {
     return gymList
       .filter((item) => {
