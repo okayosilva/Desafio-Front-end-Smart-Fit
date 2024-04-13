@@ -144,7 +144,7 @@ export function Home() {
           })}
         </div>
         {filteredGymList.length === 0 && (
-          <div className="flex flex-1 justify-center gap-2 rounded-md bg-dark-grey p-4 font-gotham-bold">
+          <div className="flex flex-1 flex-wrap items-center justify-center gap-2 rounded-md bg-dark-grey p-4 text-center font-gotham-bold">
             <OctagonAlert className="text-light-yellow" />
             <span className="text-white">Nenhuma unidade encontrada</span>
           </div>
