@@ -6,12 +6,12 @@ import recommendedMask from '../../assets/images/png/recommended-mask.png'
 import requiredTowel from '../../assets/images/png/required-towel.png'
 import recommendedTowel from '../../assets/images/png/recommended-towel.png'
 
-import forbiddenFountain from '../../assets/images/png/forbidden-fountain.png'
+import forbiddenFountain from '../../assets/images/png/not_allowed-fountain.png'
 import partialFountain from '../../assets/images/png/partial-fountain.png'
 
-import requiredLockerroom from '../../assets/images/png/required-lockerroom.png'
+import requiredLockerroom from '../../assets/images/png/allowed-lockerroom.png'
 import partialLockerroom from '../../assets/images/png/partial-lockerroom.png'
-import forbiddenLockerroom from '../../assets/images/png/forbidden-lockerroom.png'
+import forbiddenLockerroom from '../../assets/images/png/closed-lockerroom.png'
 
 export function Banner() {
   return (
