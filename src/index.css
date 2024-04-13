@@ -18,3 +18,7 @@
 
 }
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
