@@ -16,6 +16,7 @@ module.exports = {
         'gotham-bold': ['gotham-bold'],
         'gotham-book': ['gotham-book'],
         'gotham-light': ['gotham-light'],
+        sans: ['"gotham-book"', 'sans-serif'],
       },
       width: {
         sizeApp: '1216px',
