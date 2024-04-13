@@ -93,7 +93,7 @@ export function Home() {
       {pageYPosition > 900 && (
         <a
           href="#container"
-          className="fixed bottom-16 right-16 rounded-full bg-light-yellow p-2 shadow-sm transition-all duration-75 hover:shadow-md"
+          className="fixed bottom-10 right-6 rounded-full bg-light-yellow p-2 shadow-sm transition-all duration-75 hover:shadow-md md:bottom-16 md:right-16"
         >
           <ChevronUp className="h-12 w-12 text-white" />
         </a>
