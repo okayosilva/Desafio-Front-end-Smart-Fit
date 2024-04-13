@@ -37,7 +37,7 @@ export function FormTraining({
             <Input.InputCheck
               value="06h às 12h"
               checked={selectPeriods.includes('06h às 12h')}
-              onChange={(e) => setPeriods((prev) => [...prev, e.target.value])}
+              onChange={(e) => setPeriods(() => [e.target.value])}
             />
             <Input.Title>Manhã</Input.Title>
           </Input.InputArea>
@@ -48,7 +48,7 @@ export function FormTraining({
             <Input.InputCheck
               value="12h às 18h"
               checked={selectPeriods.includes('12h às 18h')}
-              onChange={(e) => setPeriods((prev) => [...prev, e.target.value])}
+              onChange={(e) => setPeriods(() => [e.target.value])}
             />
             <Input.Title>Tarde</Input.Title>
           </Input.InputArea>
@@ -59,7 +59,7 @@ export function FormTraining({
             <Input.InputCheck
               value="18h às 23h"
               checked={selectPeriods.includes('18h às 23h')}
-              onChange={(e) => setPeriods((prev) => [...prev, e.target.value])}
+              onChange={(e) => setPeriods(() => [e.target.value])}
             />
             <Input.Title>Noite</Input.Title>
           </Input.InputArea>
