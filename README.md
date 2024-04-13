@@ -1,30 +1,55 @@
-# React + TypeScript + Vite
+Status: Completo 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ <div><img src="./src/assets/images/svg/logo.svg" /> 
 
-Currently, two official plugins are available:
+## Desafio Frontend - Smart Fit
+Este repositório contém a solução para o desafio de Front-end da Smart Fit. Eu utilizei o framework React para desenvolver a aplicação.
+A Smart Fit, atuando no segmento de fitness, passou por várias mudanças durante a pandemia. Foi necessário desenvolver uma página para buscar unidades abertas ou fechadas para consulta e reserva.
+Neste desafio, foi implementado as seguintes funcionalidades de acordo com as regras de negócio definidas:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades:
+ * Carrega unidades através do arquivo JSON <a href="https://test-frontend-developer.s3.amazonaws.com/data/locations.json">locations.json</a> utilizando o método GET.
+ * Busca por todas as unidades.
+ * Previsão do número de resultados encontrados.
+ * Listagem das unidades encontradas após a busca.
 
-## Expanding the ESLint configuration
+## Regras de negócio:
+ * Filtra unidades abertas ou fechadas.
+ * Filtra unidades por período de funcionamento.
+ * Exibe a mensagem "Nenhuma unidade encontrada" quando não há resultados.
+ * Valida e exibe os ícones corretos de acordo com o status da unidade.
+<hr/>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🎨 Layout:
 
-- Configure the top-level `parserOptions` property like this:
+O layout da aplicação foi baseado nos materiais disponibilizados, incluindo designs para dispositivos móveis e desktop, cores, imagens e fontes. A fidelidade ao layout proposto foi mantida, e a aplicação é responsiva para dispositivos móveis, tablets e desktops.
+<center>
+  
+ <div><img src="./public/preview.png" /> 
+<br/>
+<hr/>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## 💻 Tecnologias Utilizadas:
+
+ * React
+ * TailwindCSS
+ * Tailwind variants
+ * Prettier plugin tailwindcss
+ * Typescript
+ * Eslint
+
+<hr/>
+
+## ⚙️ Como Executar
+  * Faça um clone do repositório do projeto no GitHub.
+  * Navegue até o diretório do projeto.
+  * Execute o seguinte comando para instalar as dependências:
+
+```
+$ pnpm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Running the project
+```
+$ pnpm run dev
+```
