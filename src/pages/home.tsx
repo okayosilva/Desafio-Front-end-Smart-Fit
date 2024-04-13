@@ -85,7 +85,7 @@ export function Home() {
         }),
       }))
       .filter((item) => item.schedules.length > 0)
-  }, [gymList, gymIsClosed, selectPeriods])
+  }, [gymList, gymIsClosed, selectPeriods, morning, afternoon, night])
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
